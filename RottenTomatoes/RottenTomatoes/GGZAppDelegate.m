@@ -7,6 +7,7 @@
 //
 
 #import "GGZAppDelegate.h"
+#import "GGZMoviesViewController.h"
 
 @implementation GGZAppDelegate
 
@@ -14,6 +15,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    GGZMoviesViewController *movieVc = [[GGZMoviesViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:movieVc];
+    self.window.rootViewController = nvc;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
