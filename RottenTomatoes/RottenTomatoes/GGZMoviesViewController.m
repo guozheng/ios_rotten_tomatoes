@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *movies;
 @property (strong, nonatomic) UIRefreshControl *refresh;
+@property (strong, nonatomic) UIWindow *dropdown;
+@property (strong, nonatomic) UILabel *dropdownLabel;
 
 @end
 
@@ -51,8 +53,40 @@
     [self.tableView addSubview:self.refresh];
     [self bindData];
     
+    // dropdown error message header
+    // code borrowed from https://teamtreehouse.com/forum/snapchat-style-error-messages
+    self.dropdown = [[UIWindow alloc] initWithFrame:CGRectMake(0, -20, 320, 20)];
+    self.dropdown.backgroundColor = [UIColor redColor];
+    self.dropdownLabel = [[UILabel alloc] initWithFrame:self.dropdown.bounds];
+    self.dropdownLabel.textAlignment = NSTextAlignmentCenter;
+    self.dropdownLabel.font = [UIFont systemFontOfSize:12];
+    self.dropdownLabel.backgroundColor = [UIColor clearColor];
+    [self.dropdown addSubview:self.dropdownLabel];
+    self.dropdown.windowLevel = UIWindowLevelStatusBar;
+    [self.dropdown makeKeyAndVisible];
+    [self.dropdown resignKeyWindow];
+    
 }
 
+// code borrowed from https://teamtreehouse.com/forum/snapchat-style-error-messages
+-(void)animateHeaderViewWithText:(NSString *) text {
+    self.dropdownLabel.text = text;
+    
+    [UIView animateWithDuration:.5 delay:0 options:0 animations:^{
+        self.dropdown.frame = CGRectMake(0, 0, 320, 20);
+    }completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:.5 delay:2 options:0 animations:^{
+            self.dropdown.frame = CGRectMake(0, -20, 320, 20);
+        } completion:^(BOOL finished) {
+            
+            //animation finished!!!
+        }];
+        ;
+    }];
+}
+
+// using 3rd party cocoacontrol MBProgressHUD: https://github.com/matej/MBProgressHUD
 - (void)bindData
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -65,13 +99,27 @@
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            NSLog(@"%@", object);
             
-            [hud hide:YES];
+            if (data == nil) {
+                // show error message
+                [self animateHeaderViewWithText:@"Connectioin error, pull to retry"];
+                
+                // hide loading status
+                [hud hide:YES];
+                
+                // TODO: should add some default content or error message here
+                
+            } else {
             
-            self.movies = object[@"movies"];
-            [self.tableView reloadData];
+                id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                NSLog(@"%@", object);
+            
+                // hide loading status
+                [hud hide:YES];
+            
+                self.movies = object[@"movies"];
+                [self.tableView reloadData];
+            }
         }];
         
         if (self.refresh != nil && self.refresh.isRefreshing == YES) {
@@ -119,7 +167,9 @@
                                        weakCell.posterImageView.image = image;
                                        [weakCell setNeedsLayout];
                                    }
-                                         failure:nil];
+                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                             [self animateHeaderViewWithText:@"Error getting movie info"];
+                                         }];
     
     return cell;
 }
