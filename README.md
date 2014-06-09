@@ -51,3 +51,11 @@ Show a list of top movies in theatre, to show movie details by selecting one of 
 App starts up without network connection, shows a dropdown animated error message about connection error. After network recovers, pull down to refresh and the movie list shows up again.
 
 <img src="screenshots/screencast-error.gif" alt="Rotten Tomatoes Movie List error handling screencast" width="334px" height="579px" />
+
+Credits and Special Thanks
+--------------------------
+
+* [Cocoapods](http://cocoapods.org) and [Cocoapods XCode Plugin](https://github.com/kattrali/cocoapods-xcode-plugin)
+* [AFNetworking](http://afnetworking.com) and [a great tutorial by Ray Wenderlich](http://www.raywenderlich.com/59255/afnetworking-2-0-tutorial)
+* [MBProgessHUD Cocoa Control for showing loading status](https://github.com/matej/MBProgressHUD)
+* Shamelessly borrowed error message code from [the article: SnapChat style error message](https://teamtreehouse.com/forum/snapchat-style-error-messages)
