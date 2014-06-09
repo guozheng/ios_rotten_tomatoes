@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2A740419452F200021F476 /* GGZMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A740219452F200021F476 /* GGZMovieDetailViewController.m */; };
+		3F2A740519452F200021F476 /* GGZMovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2A740319452F200021F476 /* GGZMovieDetailViewController.xib */; };
 		3F364CED19422CBC006E5379 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F364CEC19422CBC006E5379 /* Foundation.framework */; };
 		3F364CEF19422CBC006E5379 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F364CEE19422CBC006E5379 /* CoreGraphics.framework */; };
 		3F364CF119422CBC006E5379 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F364CF019422CBC006E5379 /* UIKit.framework */; };
@@ -38,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		22824499495B4822B3CB9E14 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		3F2A740119452F200021F476 /* GGZMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGZMovieDetailViewController.h; sourceTree = "<group>"; };
+		3F2A740219452F200021F476 /* GGZMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGZMovieDetailViewController.m; sourceTree = "<group>"; };
+		3F2A740319452F200021F476 /* GGZMovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGZMovieDetailViewController.xib; sourceTree = "<group>"; };
 		3F364CE919422CBC006E5379 /* RottenTomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenTomatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F364CEC19422CBC006E5379 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F364CEE19422CBC006E5379 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +138,9 @@
 				3F7522B319443D580086D8C2 /* GGZMovieViewCell.h */,
 				3F7522B419443D580086D8C2 /* GGZMovieViewCell.m */,
 				3F7522B519443D580086D8C2 /* GGZMovieViewCell.xib */,
+				3F2A740119452F200021F476 /* GGZMovieDetailViewController.h */,
+				3F2A740219452F200021F476 /* GGZMovieDetailViewController.m */,
+				3F2A740319452F200021F476 /* GGZMovieDetailViewController.xib */,
 			);
 			path = RottenTomatoes;
 			sourceTree = "<group>";
@@ -247,6 +255,7 @@
 				3F7522B719443D580086D8C2 /* GGZMovieViewCell.xib in Resources */,
 				3F364CF719422CBC006E5379 /* InfoPlist.strings in Resources */,
 				3F364CFF19422CBC006E5379 /* Images.xcassets in Resources */,
+				3F2A740519452F200021F476 /* GGZMovieDetailViewController.xib in Resources */,
 				3F7522B21943D2CD0086D8C2 /* GGZMoviesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +311,7 @@
 				3F7522B619443D580086D8C2 /* GGZMovieViewCell.m in Sources */,
 				3F364CF919422CBC006E5379 /* main.m in Sources */,
 				3F7522B11943D2CD0086D8C2 /* GGZMoviesViewController.m in Sources */,
+				3F2A740419452F200021F476 /* GGZMovieDetailViewController.m in Sources */,
 				3F364CFD19422CBC006E5379 /* GGZAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
