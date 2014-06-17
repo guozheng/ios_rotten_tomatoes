@@ -59,6 +59,8 @@ App starts up without network connection, shows a dropdown animated error messag
 
 Tab bar to switch between `top movies` and `top DVDs`, all images fade in effects, table cell selection customization, gradient background, etc.
 
+<img src="screenshots/screencast-optional.gif" alt="Rotten Tomatoes Movie List optional tasks screencast" width="334px" height="579px" />
+
 Credits and Special Thanks
 --------------------------
 
