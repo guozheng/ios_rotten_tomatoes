@@ -21,6 +21,9 @@
 		3F364D0819422CBC006E5379 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F364CF019422CBC006E5379 /* UIKit.framework */; };
 		3F364D1019422CBC006E5379 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F364D0E19422CBC006E5379 /* InfoPlist.strings */; };
 		3F364D1219422CBC006E5379 /* RottenTomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F364D1119422CBC006E5379 /* RottenTomatoesTests.m */; };
+		3F51ED7F194F710100E1781D /* GGZDvdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F51ED7D194F710100E1781D /* GGZDvdsViewController.m */; };
+		3F51ED80194F710100E1781D /* GGZDvdsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F51ED7E194F710100E1781D /* GGZDvdsViewController.xib */; };
+		3F51ED84194FA1CF00E1781D /* TabBarIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F51ED83194FA1CF00E1781D /* TabBarIcons.xcassets */; };
 		3F7522B11943D2CD0086D8C2 /* GGZMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7522AF1943D2CD0086D8C2 /* GGZMoviesViewController.m */; };
 		3F7522B21943D2CD0086D8C2 /* GGZMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F7522B01943D2CD0086D8C2 /* GGZMoviesViewController.xib */; };
 		3F7522B619443D580086D8C2 /* GGZMovieViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7522B419443D580086D8C2 /* GGZMovieViewCell.m */; };
@@ -59,6 +62,10 @@
 		3F364D0D19422CBC006E5379 /* RottenTomatoesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RottenTomatoesTests-Info.plist"; sourceTree = "<group>"; };
 		3F364D0F19422CBC006E5379 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F364D1119422CBC006E5379 /* RottenTomatoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RottenTomatoesTests.m; sourceTree = "<group>"; };
+		3F51ED7C194F710100E1781D /* GGZDvdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGZDvdsViewController.h; sourceTree = "<group>"; };
+		3F51ED7D194F710100E1781D /* GGZDvdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGZDvdsViewController.m; sourceTree = "<group>"; };
+		3F51ED7E194F710100E1781D /* GGZDvdsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGZDvdsViewController.xib; sourceTree = "<group>"; };
+		3F51ED83194FA1CF00E1781D /* TabBarIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarIcons.xcassets; sourceTree = "<group>"; };
 		3F7522AE1943D2CD0086D8C2 /* GGZMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGZMoviesViewController.h; sourceTree = "<group>"; };
 		3F7522AF1943D2CD0086D8C2 /* GGZMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGZMoviesViewController.m; sourceTree = "<group>"; };
 		3F7522B01943D2CD0086D8C2 /* GGZMoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGZMoviesViewController.xib; sourceTree = "<group>"; };
@@ -141,6 +148,10 @@
 				3F2A740119452F200021F476 /* GGZMovieDetailViewController.h */,
 				3F2A740219452F200021F476 /* GGZMovieDetailViewController.m */,
 				3F2A740319452F200021F476 /* GGZMovieDetailViewController.xib */,
+				3F51ED7C194F710100E1781D /* GGZDvdsViewController.h */,
+				3F51ED7D194F710100E1781D /* GGZDvdsViewController.m */,
+				3F51ED7E194F710100E1781D /* GGZDvdsViewController.xib */,
+				3F51ED83194FA1CF00E1781D /* TabBarIcons.xcassets */,
 			);
 			path = RottenTomatoes;
 			sourceTree = "<group>";
@@ -252,7 +263,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F51ED80194F710100E1781D /* GGZDvdsViewController.xib in Resources */,
 				3F7522B719443D580086D8C2 /* GGZMovieViewCell.xib in Resources */,
+				3F51ED84194FA1CF00E1781D /* TabBarIcons.xcassets in Resources */,
 				3F364CF719422CBC006E5379 /* InfoPlist.strings in Resources */,
 				3F364CFF19422CBC006E5379 /* Images.xcassets in Resources */,
 				3F2A740519452F200021F476 /* GGZMovieDetailViewController.xib in Resources */,
@@ -308,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F51ED7F194F710100E1781D /* GGZDvdsViewController.m in Sources */,
 				3F7522B619443D580086D8C2 /* GGZMovieViewCell.m in Sources */,
 				3F364CF919422CBC006E5379 /* main.m in Sources */,
 				3F7522B11943D2CD0086D8C2 /* GGZMoviesViewController.m in Sources */,

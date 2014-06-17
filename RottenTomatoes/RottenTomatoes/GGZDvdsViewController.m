@@ -1,18 +1,18 @@
 //
-//  GGZMoviesViewController.m
+//  GGZDvdsViewController.m
 //  RottenTomatoes
 //
-//  Created by Guozheng Ge on 6/7/14.
+//  Created by Guozheng Ge on 6/16/14.
 //  Copyright (c) 2014 gzge. All rights reserved.
 //
 
-#import "GGZMoviesViewController.h"
+#import "GGZDvdsViewController.h"
 #import "GGZMovieViewCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "GGZMovieDetailViewController.h"
 #import "MBProgressHUD.h"
 
-@interface GGZMoviesViewController ()
+@interface GGZDvdsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *movies;
@@ -22,19 +22,19 @@
 
 @end
 
-@implementation GGZMoviesViewController
+@implementation GGZDvdsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Top Box Office";
+        self.title = @"Top DVD Rentals";
         
         // gradient colored background
         CAGradientLayer *gradient = [CAGradientLayer layer];
         gradient.frame = self.view.bounds;
-        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:(160/255.0) green:(212/255.0) blue:(164/255.0) alpha:0.4]CGColor],(id)[[UIColor colorWithRed:(140/255.0) green:(193/255.0) blue:(82/255.0) alpha:1]CGColor],nil];
+        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:(93/255.0) green:(156/255.0) blue:(236/255.0) alpha:0.4]CGColor],(id)[[UIColor colorWithRed:(74/255.0) green:(137/255.0) blue:(255/255.0) alpha:1]CGColor],nil];
         [self.view.layer insertSublayer:gradient atIndex:0];
         self.tableView.backgroundColor = [UIColor clearColor];
     }
@@ -61,7 +61,7 @@
     [self bindData];
     
     // dropdown error message header
-    // code borrowed from https://teamtreehouse.com/forum/snapchat-style-error-messages
+    // code shamelessly borrowed from https://teamtreehouse.com/forum/snapchat-style-error-messages
     self.dropdown = [[UIWindow alloc] initWithFrame:CGRectMake(0, -20, 320, 20)];
     self.dropdown.backgroundColor = [UIColor redColor];
     self.dropdownLabel = [[UILabel alloc] initWithFrame:self.dropdown.bounds];
@@ -75,7 +75,7 @@
     
 }
 
-// code borrowed from https://teamtreehouse.com/forum/snapchat-style-error-messages
+// code shamelessly borrowed from https://teamtreehouse.com/forum/snapchat-style-error-messages
 -(void)animateHeaderViewWithText:(NSString *) text {
     self.dropdownLabel.text = text;
     
@@ -101,8 +101,8 @@
     hud.labelText = @"Loading...";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // Get top 10 box office from Rotten Tomatoes
-        NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=6psypq3q5u3wf9f2be38t5fd&limit=10";
-        NSLog(@"getting top box office movies list from Rotten Tomatoes, REST API call url: %@", url);
+        NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=6psypq3q5u3wf9f2be38t5fd&limit=10";
+        NSLog(@"getting top DVD rentals list from Rotten Tomatoes, REST API call url: %@", url);
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -117,13 +117,13 @@
                 // TODO: should add some default content or error message here
                 
             } else {
-            
+                
                 id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 NSLog(@"%@", object);
-            
+                
                 // hide loading status
                 [hud hide:YES];
-            
+                
                 self.movies = object[@"movies"];
                 [self.tableView reloadData];
             }
@@ -171,11 +171,11 @@
     __weak GGZMovieViewCell *weakCell = cell;
     
     [cell.posterImageView setImageWithURLRequest:request
-                          placeholderImage:placeholderImage
-                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                       weakCell.posterImageView.image = image;
-                                       [weakCell setNeedsLayout];
-                                   }
+                                placeholderImage:placeholderImage
+                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                             weakCell.posterImageView.image = image;
+                                             [weakCell setNeedsLayout];
+                                         }
                                          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                              [self animateHeaderViewWithText:@"Error getting movie info"];
                                          }];
@@ -197,8 +197,8 @@
     NSLog(@"passing image URL: %@ to detail view controller", imageURLString);
     
     // customize the navigation bar
-    // set back button text to Movies
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Movies" style:UIBarButtonItemStylePlain target:nil action:nil];
+    // set back button text to DVDs
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"DVDs" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     // set title to the movie title
     detailvc.navigationItem.title = movie[@"title"];

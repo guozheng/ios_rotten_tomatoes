@@ -8,6 +8,7 @@
 
 #import "GGZAppDelegate.h"
 #import "GGZMoviesViewController.h"
+#import "GGZDvdsViewController.h"
 
 @implementation GGZAppDelegate
 
@@ -16,9 +17,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    GGZMoviesViewController *movieVc = [[GGZMoviesViewController alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:movieVc];
-    self.window.rootViewController = nvc;
+    // tab bar controller
+    UITabBarController *tbc = [[UITabBarController alloc] init];
+    
+    // top box office movies view controller
+    GGZMoviesViewController *topBoxOfficeVc = [[GGZMoviesViewController alloc] init];
+    UINavigationController *topBoxOfficeNvc = [[UINavigationController alloc] initWithRootViewController:topBoxOfficeVc];
+    topBoxOfficeNvc.tabBarItem.title = @"Movies";
+    topBoxOfficeNvc.tabBarItem.image = [UIImage imageNamed:@"movie"];
+    
+    // top dvd rental view controller
+    GGZDvdsViewController *topDvdRentalsVc = [[GGZDvdsViewController alloc] init];
+    UINavigationController *topDvdRentalsNvc = [[UINavigationController alloc] initWithRootViewController:topDvdRentalsVc];
+    topDvdRentalsNvc.tabBarItem.title = @"DVDs";
+    topDvdRentalsNvc.tabBarItem.image = [UIImage imageNamed:@"dvd"];
+    
+    tbc.viewControllers = @[topBoxOfficeNvc, topDvdRentalsNvc];
+    
+    
+    self.window.rootViewController = tbc;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
