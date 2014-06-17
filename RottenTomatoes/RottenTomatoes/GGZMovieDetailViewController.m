@@ -47,6 +47,10 @@
                                 placeholderImage:placeholderImage
                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                              self.movieImageView.image = image;
+                                             self.movieImageView.alpha = 0.0;
+                                             [UIView animateWithDuration:5.0 animations:^{
+                                                 self.movieImageView.alpha = 1.0;
+                                             }];
                                          }
                                          failure:nil];
     
