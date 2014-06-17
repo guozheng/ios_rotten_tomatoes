@@ -82,7 +82,6 @@
     [UIView animateWithDuration:.5 delay:0 options:0 animations:^{
         self.dropdown.frame = CGRectMake(0, 0, 320, 20);
     }completion:^(BOOL finished) {
-        
         [UIView animateWithDuration:.5 delay:2 options:0 animations:^{
             self.dropdown.frame = CGRectMake(0, -20, 320, 20);
         } completion:^(BOOL finished) {
@@ -174,7 +173,11 @@
                           placeholderImage:placeholderImage
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        weakCell.posterImageView.image = image;
+                                       weakCell.posterImageView.alpha = 0;
                                        [weakCell setNeedsLayout];
+                                       [UIView animateWithDuration:5.0 animations:^{
+                                           weakCell.posterImageView.alpha = 1.0;
+                                       }];
                                    }
                                          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                              [self animateHeaderViewWithText:@"Error getting movie info"];
