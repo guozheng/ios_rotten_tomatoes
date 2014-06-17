@@ -20,20 +20,22 @@ User Stories
 * User sees loading state while waiting for movies API.  You can use one of the 3rd party libraries here. (Using [MBProgessHD](https://github.com/jdg/MBProgressHUD) 
 * User sees error message when there's a networking error.  You may not use UIAlertView to display the error.  See this screenshot for what the error message should look like: network error screenshot.
 * User can pull to refresh the movie list.
-* Customize the navigation bar. (optional)
 * Must use Cocoapods.
 * Asynchronous image downloading must be implemented using the UIImageView category in the AFNetworking library.
+* All images fade in (optional)
+* Customize the navigation bar. (optional)
+* Customize the highlight and selection effect of the cell. (optional)
+* Add a tab bar for Box Office and DVD. (optional)
+* Add a placeholder image as default while the image is loading. (Extra)
+* Gradient background colors. (Extra)
 
 ### Unfinished Stories
 
-* All images fade in (optional)
 * For the large poster, load the low-res image first, switch to high-res when complete (optional)
 * All images should be cached in memory and disk. In other words, images load immediately upon cold start (optional).
-* Customize the highlight and selection effect of the cell. (optional)
-* Add a tab bar for Box Office and DVD. (optional)
 * Add a search bar. (optional)
 
-Total Hours Spent: 10 hrs
+Total Hours Spent: 10 hrs + 8 hrs
 -------------------------
 
 Screencast
@@ -51,6 +53,11 @@ Show a list of top movies in theatre, to show movie details by selecting one of 
 App starts up without network connection, shows a dropdown animated error message about connection error. After network recovers, pull down to refresh and the movie list shows up again.
 
 <img src="screenshots/screencast-error.gif" alt="Rotten Tomatoes Movie List error handling screencast" width="334px" height="579px" />
+
+
+### Optional Features
+
+Tab bar to switch between `top movies` and `top DVDs`, all images fade in effects, table cell selection customization, gradient background, etc.
 
 Credits and Special Thanks
 --------------------------
