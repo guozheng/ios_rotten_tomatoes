@@ -58,6 +58,7 @@
     self.synopsisLabel.text = self.movieSynopsis;
     
     [self.synopsisLabel sizeToFit];
+
 }
 
 - (void)didReceiveMemoryWarning

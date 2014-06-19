@@ -167,7 +167,7 @@
     
     UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
     
-    __weak GGZMovieViewCell *weakCell = cell;
+    __weak GGZMovieViewCell *weakCell = cell; // need to be weak since it is used in the block
     
     [cell.posterImageView setImageWithURLRequest:request
                           placeholderImage:placeholderImage
